@@ -29,4 +29,18 @@ pipeline {
             }
         }
     }
+
+    post {
+        success {
+            publishHTML([
+                reportDir: 'src',
+                reportFiles: 'index.html',
+                reportName: 'Dynamic HTML generator',
+                allowMissing: false, // Default value
+                alwaysLinkToLastBuild: false, // Default value
+                keepAll: false, // Default value
+            ])
+        }
+    }
 }
+
